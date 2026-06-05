@@ -1,0 +1,15 @@
+{
+	"name": "@nightcode/server",
+	"type": "module",
+	"private": true,
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"dependencies": {
+		"@hono/zod-validator": "^0.8.0",
+		"@nightcode/shared": "workspace:*",
+		"hono": "^4.12.23",
+		"zod": "^4.4.3",
+		"zod-validator": "^1.0.1"
+	}
+}

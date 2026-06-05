@@ -2,6 +2,7 @@ import { commands } from "./commands";
 import { TextAttributes, type ScrollBarRenderable } from "@opentui/core";
 import type { RefObject } from "react";
 import { getFilteredCommands } from "./filterCommand";
+import { useTheme } from "../../providers/ThemeProvider";
 
 const MAX_VISIBLE_ITEMS = 8;
 
@@ -24,6 +25,7 @@ const index = ({
 }: CommandMenuProps) => {
 	const filtered = getFilteredCommands(query);
 	const visibleHeight = Math.min(filtered.length, MAX_VISIBLE_ITEMS);
+	const { colors } = useTheme();
 
 	if (filtered.length == 0) {
 		return (
@@ -43,7 +45,7 @@ const index = ({
 						paddingX={2}
 						height={1}
 						overflow="hidden"
-						backgroundColor={isSelected ? "#89B4FA" : "#000"}
+						backgroundColor={isSelected ? colors.selection : "#000"}
 						onMouseMove={() => onSelect(i)}
 						onMouseDown={() => onExecute(i)}
 					>
